@@ -3,7 +3,7 @@ package Labyrinth::DIUtils::GD;
 use warnings;
 use strict;
 
-our $VERSION = '5.07';
+our $VERSION = '5.08';
 
 =head1 NAME
 
@@ -32,6 +32,7 @@ this module directly, access via Labyrinth::DIUtils.
 #############################################################################
 
 use GD;
+use IO::File;
 
 #############################################################################
 #Subroutines
@@ -179,10 +180,10 @@ sub thumb {
 sub _writeimage {
     my ($file,$data) = @_;
 
-    open    IMAGE, ">$file" || die "Cannot write to file [$file]: $!";
-    binmode IMAGE;
-    print   IMAGE $data;
-    close   IMAGE;
+    my $fh = IO::File->new($file,'w+') || die "Cannot write to file [$file]: $!";
+    $fh->binmode;
+    print $fh $data;
+    $fh->close;
 }
 
 1;
@@ -191,8 +192,9 @@ __END__
 
 =head1 SEE ALSO
 
-  GD
-  Labyrinth
+L<GD>,
+L<Labyrinth>,
+L<Labyrinth::DIUtils::ImageMagick>
 
 =head1 AUTHOR
 

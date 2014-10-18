@@ -1,6 +1,6 @@
 --- #YAML:1.0
 name:                     Labyrinth-DIUtils-GD
-version:                  5.07
+version:                  5.08
 abstract:                 Digital Image utilities driver with GD for Labyrinth Framework
 author:
   - Barbie <barbie@cpan.org>
@@ -12,6 +12,7 @@ installdirs:              site
 requires:
   perl:                             5.006
   GD:                               0
+  IO::File:                         0
 recommends:
   Test::CPAN::Meta:                 0
   Test::CPAN::Meta::JSON:           0
@@ -20,13 +21,12 @@ recommends:
 build_requires:
   File::Copy:                       0
   File::Path:                       0
-  IO::File:                         0
   Test::More:                       0.01
 
 provides:
   Labyrinth::DIUtils::GD:
     file:     lib/Labyrinth/DIUtils/GD.pm
-    version:  5.07
+    version:  5.08
 
 no_index:
   directory:
@@ -40,4 +40,4 @@ resources:
 meta-spec:
    version:   1.4
    url:       http://module-build.sourceforge.net/META-spec-v1.4.html
-generated_by: Hand 1.0
+generated_by: The Hand of Barbie 1.0
